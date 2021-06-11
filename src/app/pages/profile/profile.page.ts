@@ -42,6 +42,12 @@ export class ProfilePage implements OnInit {
       .subscribe(
         (result) => { this.currentLocation = result[0]; console.log(result[0]); console.log(this.currentLocation) }
       );
+
+    this.statusService.getTenantStatus(this.authenticationService.currentUserValue.id)
+      .subscribe(
+      (result) => { this.currentStatus = result[0]; console.log(result[0]) }
+    );
+    
   }
 
   logout() {

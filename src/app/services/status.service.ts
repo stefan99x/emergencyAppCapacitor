@@ -26,4 +26,8 @@ export class StatusService {
   getAllStatusNOT_IN_THE_BUILDING(): Observable<Status[]>{
     return this.http.get<Status[]>(`${Constants.BASE_URL + this._apiUrl}/NOT_IN_THE_BUILDING`)
   }
+
+  getTenantStatus(id: string):Observable<Status>{
+    return this.http.get<Status>(`${Constants.BASE_URL + this._apiUrl}/tenant/${id}`);
+  }
 }

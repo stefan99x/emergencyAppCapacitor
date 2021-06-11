@@ -13,7 +13,7 @@
       <p>NAME: {{currentTenant.firstName +" "+ currentTenant.lastName}}</p>
       <p>AGE: {{currentTenant.age}}</p>
       <p>EMAIL: {{currentTenant.email}}</p>
-      <p>CURRENT STATUS: TBA</p>
+      <p *ngIf="currentStatus">CURRENT STATUS: {{currentStatus.statusName}}</p>
 
       <div class="page-container__profile--update">
         <ion-button class="page-container__profile--update--btn button" (click)="goToUpdate()">Update Profile
