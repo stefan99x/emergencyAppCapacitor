@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Injuries</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="page-content">
+  <div>
+    <div *ngFor="let injury of injuries; let i = index" class="page-content__injury">
+      <p>{{injury.tenantName}}</p>
+      <p>{{injury.bodyPartName}}</p>
+      <p>{{injury.description}}</p>
+      <ion-button (click)="deleteInjury(i)">Delete</ion-button>
+      <ion-button (click)="goToEdit(i)">Edit</ion-button>
+    </div>
+  </div>
+  <ion-button (click)="goToAddInjury()">Add Injury</ion-button>
+  <ion-button (click)="refresh()">Refresh</ion-button>
+
+</ion-content>

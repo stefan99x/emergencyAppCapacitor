@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Update Location</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="currentTenant">
+  <form [formGroup]="updateLocationTenantForm">
+    <ion-item>
+      <ion-label>Floor</ion-label>
+      <ion-input class="user__text--input" type="number" formControlName="floor"
+        placeholder="Enter your apartment floor: "></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Apartment Number</ion-label>
+      <ion-input class="user__text--input" type="number" formControlName="number"
+        placeholder="Enter your apartment number: "></ion-input>
+    </ion-item>
+
+
+    <ion-button expand="block" (click)="updateLocationTenant()">Update Location</ion-button>
+    <ion-button expand="block" (click)="goBack()">Cancel</ion-button>
+  </form>
+</ion-content>

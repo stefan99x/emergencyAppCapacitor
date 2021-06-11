@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "emergencyApp",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

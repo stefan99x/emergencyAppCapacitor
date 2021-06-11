@@ -1,0 +1,21 @@
+<ion-content class="ion-padding">
+  <div class="page-container">
+
+    <form [formGroup]="loginForm">
+      <ion-item>
+        <ion-label>Email: </ion-label>
+        <ion-input class="user__text--input" type="email" formControlName="email" placeholder="Please enter Email Address"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Password: </ion-label>
+        <ion-input class="user__text--input" type="password" formControlName="password" placeholder="Please enter Password"></ion-input>
+      </ion-item>
+      
+      <ion-button expand="block" (click)="login()">Login</ion-button>
+    </form>
+
+    <ion-button (click)="goToRegister()">Register</ion-button>
+    <ion-button (chick)="goToNearbyChat()">Nearby Chat</ion-button>
+  </div>
+</ion-content>

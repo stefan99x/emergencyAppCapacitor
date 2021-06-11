@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Chat Nearby API</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="page-container">
+    <div class="page-container__messages">
+      <ul>
+        <li *ngFor="let message of messages">
+          <chat-message [message]="message"></chat-message>
+        </li>
+      </ul>
+    </div>
+    <div class="page-container__actions">
+      <form [formGroup]="messageForm" class="page-container__actions__message">
+        <ion-item>
+          <ion-input type="text" formControlName="message" placeholder="Enter your message."></ion-input>
+        </ion-item>
+      <ion-button (click)="sendMessage()" class="page-container__actions__send">Send Icon</ion-button>
+
+      </form>
+    </div>
+  </div>
+</ion-content>

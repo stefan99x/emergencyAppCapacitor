@@ -1,0 +1,46 @@
+.page-container {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px 20px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "Total-Users Number-of-Injuries"
+        "Online-Users Status-Unknow";
+    justify-items: center;
+    align-items: center;
+
+    &__summary-box{
+        height: 100%;
+        width: 100%;
+        border-radius: 17px;
+
+        &__title {
+            border-radius: 17px;
+            text-align: center;
+            height: 10%;
+            background-color: palevioletred;
+        }
+    
+        &__info {
+            border-radius: 17px;
+            vertical-align: middle;
+            text-align: center;
+            align-self: center;
+            height: 80%;
+            background-color: peru;
+        }
+    }
+
+
+
+    //   .Total-Users { grid-area: Total-Users; }
+
+    //   .Number-of-Injuries { grid-area: Number-of-Injuries; }
+
+    //   .Online-Users { grid-area: Online-Users; }
+
+    //   .Status-Unknow { grid-area: Status-Unknow; }
+}

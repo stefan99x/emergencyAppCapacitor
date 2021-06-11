@@ -1,0 +1,15 @@
+.page-content{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-content: center;
+    margin-left: 500px;
+
+    &__injury{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        text-align: center;
+    }
+}

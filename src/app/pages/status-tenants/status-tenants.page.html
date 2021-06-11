@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Status</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="page-container">
+    <div class="page-container__status">
+      <div class="page-container__status__title">On and Safe</div>
+        <ul class="page-container__status__user">
+          <li *ngFor="let user of statusON">{{user.tenantName}}</li>
+        </ul>
+    </div>
+  
+  
+    <div class="page-container__status">
+      <div class="page-container__status__title">On and Injured</div>
+      <ul class="page-container__status__user">
+        <li *ngFor="let user of statusINJURED">{{user.tenantName}}</li>
+      </ul>
+    </div>
+  
+    
+    <div class="page-container__status">
+      <div class="page-container__status__title">UNKNOW</div>
+      <ul class="page-container__status__user">
+        <li *ngFor="let user of statusUNKNOWN">{{user.tenantName}}</li>
+      </ul>
+    </div>
+  
+  
+    <div class="page-container__status">
+      <div class="page-container__status__title">Were not in the building</div>
+      <ul class="page-container__status__user">
+        <li *ngFor="let user of statusNOT_IN_THE_BUILDING">{{user.tenantName}}</li>
+      </ul>
+    </div>
+  </div>
+</ion-content>

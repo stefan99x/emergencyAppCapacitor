@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>SignUp</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="registerForm">
+    <ion-item>
+      <ion-label>First Name: </ion-label>
+      <ion-input class="user__text--input" type="text" formControlName="firstName" placeholder="Please enter your first name."></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Last Name: </ion-label>
+      <ion-input class="user__text--input" type="text" formControlName="lastName" placeholder="Please enter your last name."></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Age: </ion-label>
+      <ion-input class="user__text--input" type="number" formControlName="age" placeholder="Please enter your age"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Email: </ion-label>
+      <ion-input class="user__text--input" type="email" formControlName="email" placeholder="Please enter Email Address"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Password: </ion-label>
+      <ion-input class="user__text--input" type="password" formControlName="password" placeholder="Please enter Password"></ion-input>
+    </ion-item>
+    
+    <ion-button expand="block" (click)="register()">Register</ion-button>
+  </form>
+</ion-content>

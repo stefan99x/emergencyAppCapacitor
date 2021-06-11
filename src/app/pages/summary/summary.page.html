@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Summary</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content *ngIf="summary">
+  <div class="page-container">
+    <div class="page-container__summary-box">
+      <p class="page-container__summary-box__title">Total Users</p>
+      <p class="page-container__summary-box__info">{{summary.totalTenants}}</p>
+    </div>
+
+    <div class="page-container__summary-box">
+      <p class="page-container__summary-box__title">Number of Injuries</p>
+      <p class="page-container__summary-box__info">{{summary.numberOfInjuries}}</p>
+    </div>
+
+    <div class="page-container__summary-box">
+      <p class="page-container__summary-box__title">Online Users</p>
+      <p class="page-container__summary-box__info">{{summary.onlineTenants}}</p>
+    </div>
+
+    <div class="page-container__summary-box">
+      <p class="page-container__summary-box__title">Status UNKNOWN</p>
+      <p class="page-container__summary-box__info">{{summary.statusUnknown}}</p>
+    </div>
+  </div>
+</ion-content>
