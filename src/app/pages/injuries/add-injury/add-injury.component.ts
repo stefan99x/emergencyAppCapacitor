@@ -16,12 +16,12 @@ export class AddInjuryComponent implements OnInit {
   addInjuryForm: FormGroup;
   selectedBodyPart: any;
   public bodyParts = [
-    { key: 'Head', value: '60c8f69b4e823f11a314343f' },
-    { key: 'Left Arm', value: '60c8f71c4e823f11a3143440' },
-    { key: 'Right Arm', value: '60c8f73b4e823f11a3143441' },
-    { key: 'Torso', value: '60c8f74d4e823f11a3143442' },
-    { key: 'Left Leg', value: '60c8f7634e823f11a3143443' },
-    { key: 'Right Leg', value: '60c8f7844e823f11a3143444' }
+    { key: 'Head', value: '60dac29452b08a49ac3be442' },
+    { key: 'Left Arm', value: '60dac2b852b08a49ac3be444' },
+    { key: 'Right Arm', value: '60dac2c352b08a49ac3be445' },
+    { key: 'Torso', value: '60dac2a652b08a49ac3be443' },
+    { key: 'Left Leg', value: '60dac2cd52b08a49ac3be446' },
+    { key: 'Right Leg', value: '60dac2de52b08a49ac3be447' }
   ];
   constructor(
     private route: ActivatedRoute,
