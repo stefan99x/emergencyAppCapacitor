@@ -19,6 +19,10 @@
     <div class="page-container__actions">
       <form [formGroup]="messageForm" class="page-container__actions__message">
         <ion-item>
+          <ion-input type="text" formControlName="tenantName" placeholder="Enter your name."></ion-input>
+        </ion-item>
+
+        <ion-item>
           <ion-input type="text" formControlName="message" placeholder="Enter your message."></ion-input>
         </ion-item>
       <ion-button (click)="sendMessage()" class="page-container__actions__send">Send Icon</ion-button>

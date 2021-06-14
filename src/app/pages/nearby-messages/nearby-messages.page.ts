@@ -23,6 +23,7 @@ export class NearbyMessagesPage implements OnInit {
   ) {
     this.messageForm = this.fb.group({
       message: [null, [Validators.required]],
+      tenantName: [null,[Validators.required]]
     });
   }
 
@@ -34,11 +35,10 @@ export class NearbyMessagesPage implements OnInit {
 
   sendMessage() {
     var message = new Message(this.messageForm.value);
-    message.tenantName = 'QUEST';
     this.messageService.sendMessage(message).subscribe(
       () => {
         this.messageService.getMessages().subscribe(
-          (result) => { this.messages = result; this.messageForm.reset(); }
+          (result) => { this.messages = result; this.messageForm.get('message').reset(); }
         );
       }
     )
