@@ -43,6 +43,8 @@ export class AddInjuryComponent implements OnInit {
   addInjury() {
     var injury = new Injury(this.addInjuryForm.value)
     injury.tenantId = this.currentTenant.id;
+    injury.bodyPartName = "Head";
+    injury.tenantName = this.currentTenant.firstName + " " + this.currentTenant.lastName 
     this.injuriesService.addTenantInjury(injury).subscribe(
       () => {
         this.router.navigate(["/injuries"]);

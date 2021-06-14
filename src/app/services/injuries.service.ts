@@ -15,6 +15,7 @@ export class InjuriesService {
   constructor(private http: HttpClient) { }
 
   addTenantInjury(injury: Injury): Observable<Injury> {
+    console.log(injury);
     return this.http.post<Injury>(`${Constants.BASE_URL + this._apiUrl}`, injury);
   }
 

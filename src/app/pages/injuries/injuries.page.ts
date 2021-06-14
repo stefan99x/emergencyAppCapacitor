@@ -35,7 +35,7 @@ export class InjuriesPage implements OnInit {
 
   refresh() {
     this.injuriesService.getAllInjuries().subscribe(
-      (result) => { this.injuries = result; }
+      (result) => { this.injuries = result; console.log(result) }
     );
   }
 
