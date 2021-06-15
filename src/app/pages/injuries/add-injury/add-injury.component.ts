@@ -5,6 +5,7 @@ import { Injury } from 'src/app/models/injury';
 import { Tenant } from 'src/app/models/tenant';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { InjuriesService } from 'src/app/services/injuries.service';
+import { SwalService } from 'src/app/services/swal.service';
 
 @Component({
   selector: 'app-add-injury',
@@ -29,6 +30,7 @@ export class AddInjuryComponent implements OnInit {
     private router: Router,
     private injuriesService: InjuriesService,
     private authentication: AuthenticationService,
+    private swalService: SwalService,
   ) {
     this.addInjuryForm = this.fb.group({
       bodyPartId: [null, [Validators.required,]],
@@ -47,6 +49,7 @@ export class AddInjuryComponent implements OnInit {
     injury.tenantName = this.currentTenant.firstName + " " + this.currentTenant.lastName 
     this.injuriesService.addTenantInjury(injury).subscribe(
       () => {
+        this.swalService.showSuccessAdd();
         this.router.navigate(["/injuries"]);
         this.addInjuryForm.reset();
       }

@@ -5,6 +5,7 @@ import { Apartment } from 'src/app/models/apartment';
 import { Tenant } from 'src/app/models/tenant';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { LocationsService } from 'src/app/services/locations.service';
+import { SwalService } from 'src/app/services/swal.service';
 
 @Component({
   selector: 'app-update-location',
@@ -21,7 +22,7 @@ export class UpdateLocationComponent implements OnInit {
     private fb: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-
+    private swalService: SwalService
   ) {
     this.updateLocationTenantForm = this.fb.group({
       floor: [null, [Validators.required]],
@@ -38,7 +39,10 @@ export class UpdateLocationComponent implements OnInit {
     var updateLocation = new Apartment(this.updateLocationTenantForm.value);
     updateLocation.tenantId = this.currentTenant.id;
     this.locationService.updateApartment(this.currentTenant.id, updateLocation).subscribe(
-      ()=> {this.router.navigate(["/profile"])}
+      () => {
+        this.swalService.showSuccessEdit();
+        this.router.navigate(["/profile"])
+      }
     )
   }
 

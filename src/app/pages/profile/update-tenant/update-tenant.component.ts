@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Tenant } from 'src/app/models/tenant';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { SwalService } from 'src/app/services/swal.service';
 import { TenantsService } from 'src/app/services/tenants.service';
 
 @Component({
@@ -20,7 +21,7 @@ export class UpdateTenantComponent implements OnInit {
     private route: ActivatedRoute,
     private fb: FormBuilder,
     private router: Router,
-
+    private swalService: SwalService
   ) {
     this.updateForm = this.fb.group({
       email: [null, [Validators.required, Validators.email,]],
@@ -39,7 +40,9 @@ export class UpdateTenantComponent implements OnInit {
   updateTenant() {
     var updatedTenant = new Tenant(this.updateForm.value);
     this.tenantsService.updateTenant(this.currentTenant.id, updatedTenant).subscribe(
-      ()=> {this.router.navigate(["/profile"])}
+      ()=> {
+        this.swalService.showSuccessEdit();
+        this.router.navigate(["/profile"])}
     )
   }
 

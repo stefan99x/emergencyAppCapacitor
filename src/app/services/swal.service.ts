@@ -20,7 +20,7 @@ export class SwalService {
   public showSuccessAdd(): void {
     this._swalNotificationCorner.fire({
       icon: 'success',
-      title: 'Added succesfully',
+      title: 'Added succesfully please refres',
     });
   }
 
@@ -37,6 +37,7 @@ export class SwalService {
       title: 'Deleted succesfully',
     });
   }
+
 
   public showErrorNotification(): void {
     this._swalNotificationCorner.fire({

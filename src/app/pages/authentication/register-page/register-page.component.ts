@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Register } from 'src/app/models/register';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { SwalService } from 'src/app/services/swal.service';
 
 @Component({
   selector: 'app-register.page',
@@ -21,6 +22,7 @@ export class RegisterPageComponent implements OnInit {
     private fb: FormBuilder,
     private authenticationService: AuthenticationService,
     private router: Router,
+    private swalService: SwalService
   ) {
     this.registerForm = this.fb.group({
       email: [null, [Validators.required, Validators.email,]],
@@ -35,7 +37,9 @@ export class RegisterPageComponent implements OnInit {
     var register = new Register(this.registerForm.value);
     this.authenticationService.register(register)
       .subscribe(
-        () => { this.router.navigate(["/profile"]); }
+        () => {
+          this.swalService.activationOk();
+          this.router.navigate(["/profile"]); }
       );
   }
 

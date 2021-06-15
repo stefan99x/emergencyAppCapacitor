@@ -5,6 +5,7 @@ import { Injury } from 'src/app/models/injury';
 import { Tenant } from 'src/app/models/tenant';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { InjuriesService } from 'src/app/services/injuries.service';
+import { SwalService } from 'src/app/services/swal.service';
 
 @Component({
   selector: 'app-update-injury',
@@ -27,6 +28,7 @@ export class UpdateInjuryComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private fb: FormBuilder,
+    private swalService: SwalService,
     private router: Router,
     private injuriesService: InjuriesService,
     private authentication: AuthenticationService,
@@ -53,6 +55,7 @@ export class UpdateInjuryComponent implements OnInit {
     
     this.injuriesService.updateInjury(this.currentTenant.id, injury).subscribe(
       () => {
+        this.swalService.showSuccessEdit();
         this.router.navigate(["/injuries"]);
         this.updateInjuryForm.reset();
       }

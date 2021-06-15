@@ -5,6 +5,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 import { InjuriesService } from 'src/app/services/injuries.service';
 import { LocationsService } from 'src/app/services/locations.service';
 import { StatusService } from 'src/app/services/status.service';
+import { SwalService } from 'src/app/services/swal.service';
 import { TenantsService } from 'src/app/services/tenants.service';
 
 @Component({
@@ -18,6 +19,7 @@ export class InjuriesPage implements OnInit {
 
   constructor(
     private authenticationService: AuthenticationService,
+    private swalService: SwalService,
     private injuriesService: InjuriesService,
     private route: ActivatedRoute,
     private router: Router,
@@ -35,7 +37,9 @@ export class InjuriesPage implements OnInit {
 
   refresh() {
     this.injuriesService.getAllInjuries().subscribe(
-      (result) => { this.injuries = result; console.log(result) }
+      (result) => { 
+        this.injuries = result;
+      }
     );
   }
 
@@ -44,8 +48,13 @@ export class InjuriesPage implements OnInit {
   }
 
   deleteInjury(index: number) {
-    this.injuriesService.deleteInjury(this.injuries[index]._id.$oid).subscribe(
-      () => { this.refresh(); }
-    )
+    this.swalService.showConfirmation("Delete Injury", "Are you sure you want to delete this Injury?")
+      .then((result) => {
+        if (result.isConfirmed) {
+          this.injuriesService.deleteInjury(this.injuries[index]._id.$oid).subscribe(
+            () => { this.refresh(); }
+          )
+        }
+      });
   }
 }
