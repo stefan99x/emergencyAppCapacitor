@@ -29,7 +29,7 @@ export class InjuriesService {
 
   updateInjury(id: string, injury: Injury): Observable<Injury> {
     console.log(injury);
-    
+
     return this.http.put<Injury>(`${Constants.BASE_URL + this._apiUrl}/${id}`, injury)
   }
 

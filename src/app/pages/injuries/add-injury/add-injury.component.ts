@@ -34,7 +34,7 @@ export class AddInjuryComponent implements OnInit {
   ) {
     this.addInjuryForm = this.fb.group({
       bodyPartId: [null, [Validators.required,]],
-      description: [null, [Validators.required,]]
+      description: [null,]
     });
   }
 

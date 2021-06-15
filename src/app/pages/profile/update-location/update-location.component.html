@@ -15,14 +15,22 @@
         placeholder="Enter your apartment floor: "></ion-input>
     </ion-item>
 
+    <div *ngIf = "updateLocationTenantForm.controls['floor']?.errors">
+      <p>Please Fill your floor</p>
+    </div>
+
     <ion-item>
       <ion-label>Apartment Number</ion-label>
       <ion-input class="user__text--input" type="number" formControlName="number"
         placeholder="Enter your apartment number: "></ion-input>
     </ion-item>
 
+    <div *ngIf = "updateLocationTenantForm.controls['number']?.errors">
+      <p>Please Fill your number</p>
+    </div>
 
-    <ion-button expand="block" (click)="updateLocationTenant()">Update Location</ion-button>
+
+    <ion-button expand="block" [disabled]="!updateLocationTenantForm.valid" (click)="updateLocationTenant()">Update Location</ion-button>
     <ion-button expand="block" (click)="goBack()">Cancel</ion-button>
   </form>
 </ion-content>

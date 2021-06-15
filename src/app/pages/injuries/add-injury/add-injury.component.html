@@ -16,12 +16,16 @@
       </ion-select>
     </ion-item>
 
+    <div *ngIf = "addInjuryForm.controls['bodyPartId']?.errors">
+      <p>Please select body part</p>
+    </div>
+
     <ion-item>
         <ion-label>Description</ion-label>
         <ion-input formControlName="description"></ion-input>
     </ion-item>
 
-    <ion-button expand="block" (click)="addInjury()">Add Injury</ion-button>
+    <ion-button expand="block" [disabled]="!addInjuryForm.valid" (click)="addInjury()">Add Injury</ion-button>
     <ion-button expand="block" (click)="goBack()">Cancel</ion-button>
   </form>
 </ion-content>

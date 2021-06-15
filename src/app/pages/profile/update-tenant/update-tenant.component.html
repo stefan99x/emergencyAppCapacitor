@@ -13,27 +13,46 @@
       <ion-label>First Name: </ion-label>
       <ion-input class="user__text--input" type="text" formControlName="firstName" placeholder="{{currentTenant.firstName}}"></ion-input>
     </ion-item>
+    <div *ngIf = "updateForm.controls['firstName']?.errors">
+      <p>Please Fill your first name</p>
+    </div>
+
 
     <ion-item>
       <ion-label>Last Name: </ion-label>
       <ion-input class="user__text--input" type="text" formControlName="lastName" placeholder="{{currentTenant.lastName}}"></ion-input>
     </ion-item>
+    <div *ngIf = "updateForm.controls['lastName']?.errors">
+      <p>Please Fill your last name</p>
+    </div>
 
     <ion-item>
       <ion-label>Age: </ion-label>
       <ion-input class="user__text--input" type="number" formControlName="age" placeholder="{{currentTenant.age}}"></ion-input>
     </ion-item>
+    <div *ngIf = "updateForm.controls['age']?.errors">
+      <p>Please Fill your age</p>
+    </div>
 
     <ion-item>
       <ion-label>Email: </ion-label>
       <ion-input class="user__text--input" type="email" formControlName="email" placeholder="{{currentTenant.email}}"></ion-input>
     </ion-item>
 
+    <div *ngIf = "updateForm.controls['email']?.errors">
+      <p>Please Fill your email</p>
+    </div>
+
     <ion-item>
       <ion-label>Password: </ion-label>
       <ion-input class="user__text--input" type="password" formControlName="password" placeholder="Shh it's your secret"></ion-input>
     </ion-item>
-    <ion-button expand="block" (click)="updateTenant()" >Update</ion-button>
+
+    <div *ngIf = "updateForm.controls['password']?.errors">
+      <p>Please Fill your new password</p>
+    </div>
+
+    <ion-button expand="block" [disabled]="!updateForm.valid" (click)="updateTenant()" >Update</ion-button>
     <ion-button expand="block" (click)="goBack()">Cancel</ion-button>
   </form>
 </ion-content>

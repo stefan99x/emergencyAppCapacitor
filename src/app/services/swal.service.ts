@@ -20,7 +20,7 @@ export class SwalService {
   public showSuccessAdd(): void {
     this._swalNotificationCorner.fire({
       icon: 'success',
-      title: 'Added succesfully please refres',
+      title: 'Added succesfully please refresh',
     });
   }
 

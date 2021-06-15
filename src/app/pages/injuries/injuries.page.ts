@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Injury } from 'src/app/models/injury';
+import { Tenant } from 'src/app/models/tenant';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { InjuriesService } from 'src/app/services/injuries.service';
 import { LocationsService } from 'src/app/services/locations.service';
@@ -16,6 +17,7 @@ import { TenantsService } from 'src/app/services/tenants.service';
 export class InjuriesPage implements OnInit {
 
   injuries: Injury[];
+  currentTenant: Tenant;
 
   constructor(
     private authenticationService: AuthenticationService,
@@ -29,6 +31,8 @@ export class InjuriesPage implements OnInit {
     this.injuriesService.getAllInjuries().subscribe(
       (result) => { this.injuries = result; console.log(result) }
     );
+
+    this.currentTenant = this.authenticationService.currentUserValue;
   }
 
   goToEdit(index: number) {
